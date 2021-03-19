@@ -7,6 +7,7 @@ import Rating from '../components/Rating';
 const ProductScreen = ({match}) => {
 	const id = match.params.id;
 	const [product, setProduct] = useState([]);
+
 	useEffect(() => {
 		const fetchProduct = async () => {
 			const {data} = await axios.get(`/api/products/${id}`);
@@ -14,7 +15,6 @@ const ProductScreen = ({match}) => {
 		};
 		fetchProduct();
 	}, [id]);
-	// const product = products.find((p) => p._id === match.params.id);
 
 	return (
 		<>
