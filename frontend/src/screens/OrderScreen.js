@@ -13,6 +13,10 @@ const OrderScreen = ({match}) => {
 	const orderDetails = useSelector((state) => state.orderDetails)
 	const {order, loading, error} = orderDetails
 
+	if (!loading) {
+		order.itemsPrice =
+			order.totalPrice - order.shippingPrice - order.taxPrice
+	}
 	useEffect(() => {
 		console.log(orderId)
 		dispatch(getOrderDetails(orderId))
@@ -30,6 +34,16 @@ const OrderScreen = ({match}) => {
 					<ListGroup variant='flush'>
 						<ListGroup.Item>
 							<h2>Shipping</h2>
+							<p>
+								<strong>Name: </strong>
+								{order.user.name}
+							</p>
+							<p>
+								<strong>Email: </strong>
+								<a href={`mailto:${order.user.email}`}>
+									{order.user.email}
+								</a>{' '}
+							</p>
 							<p>
 								<strong>Address: </strong>
 								{order.shippingAddress.address},
