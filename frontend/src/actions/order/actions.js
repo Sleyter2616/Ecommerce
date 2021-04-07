@@ -3,6 +3,9 @@ import {
 	ORDER_CREATE_FAIL,
 	ORDER_CREATE_SUCCESS,
 	ORDER_CREATE_REQUEST,
+	ORDER_DETAILS_FAIL,
+	ORDER_DETAILS_SUCCESS,
+	ORDER_DETAILS_REQUEST,
 } from './constants'
 
 export const createOrder = (order) => async (dispatch, getState) => {
@@ -47,12 +50,14 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 		const {
 			userLogin: {userInfo},
 		} = getState()
+
 		const config = {
 			headers: {
 				Authorization: `Bearer ${userInfo.token}`,
 			},
 		}
-		const {data} = await axios.post(`api/orders/${id}`, config)
+		const {data} = await axios.get(`/api/orders/${id}`, config)
+
 		dispatch({
 			type: ORDER_DETAILS_SUCCESS,
 			payload: data,
