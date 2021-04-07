@@ -51,6 +51,15 @@ const OrderScreen = ({match}) => {
 								{order.shippingAddress.postalCode},
 								{order.shippingAddress.country}
 							</p>
+							{order.isDevlivered ? (
+								<Message vairant='success'>
+									Devlivered on ${order.devliveredAt}
+								</Message>
+							) : (
+								<Message variant='danger'>
+									Not devlivered
+								</Message>
+							)}
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<h2>Payment Method</h2>
@@ -58,6 +67,13 @@ const OrderScreen = ({match}) => {
 								<strong>Method: </strong>
 								{order.paymentMethod}
 							</p>
+							{order.isPaid ? (
+								<Message vairant='success'>
+									Paid on ${order.paidAt}
+								</Message>
+							) : (
+								<Message variant='danger'>Not paid</Message>
+							)}
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<h2>Order Items</h2>
