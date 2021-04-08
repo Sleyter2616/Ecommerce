@@ -18,9 +18,10 @@ const OrderScreen = ({match}) => {
 			order.totalPrice - order.shippingPrice - order.taxPrice
 	}
 	useEffect(() => {
-		console.log(orderId)
-		dispatch(getOrderDetails(orderId))
-	}, [])
+		if (!order || order._id !== orderId) {
+			dispatch(getOrderDefails(orderId))
+		}
+	}, [order, orderId])
 
 	return loading ? (
 		<Loader />
