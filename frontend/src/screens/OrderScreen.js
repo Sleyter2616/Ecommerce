@@ -173,7 +173,13 @@ const OrderScreen = ({match}) => {
 							</ListGroup.Item>
 							{!order.isPaid && (
 								<ListGroup.Item>
-									{loadingPay && <Loader />}
+									{loadingPay ? (
+										<Loader />
+									) : errorPay ? (
+										<Message variant='danger'>
+											{errorPay}
+										</Message>
+									) : null}
 									{!sdkReady ? (
 										<Loader />
 									) : (
