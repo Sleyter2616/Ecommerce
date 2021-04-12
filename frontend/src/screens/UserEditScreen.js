@@ -48,7 +48,7 @@ const UserEditScreen = ({match, history}) => {
 	}
 	return (
 		<>
-			<Link to='/gitadmin/userlist' className='btn btn-light my-3'>
+			<Link to='/admin/userlist' className='btn btn-light my-3'>
 				Go Back
 			</Link>
 			<FormContainer>
@@ -72,6 +72,7 @@ const UserEditScreen = ({match, history}) => {
 								onChange={(e) => setName(e.target.value)}
 							></Form.Control>
 						</Form.Group>
+
 						<Form.Group controlId='email'>
 							<Form.Label>Email Address</Form.Label>
 							<Form.Control
@@ -81,6 +82,7 @@ const UserEditScreen = ({match, history}) => {
 								onChange={(e) => setEmail(e.target.value)}
 							></Form.Control>
 						</Form.Group>
+
 						<Form.Group controlId='isadmin'>
 							<Form.Check
 								type='checkbox'
@@ -89,6 +91,7 @@ const UserEditScreen = ({match, history}) => {
 								onChange={(e) => setIsAdmin(e.target.checked)}
 							></Form.Check>
 						</Form.Group>
+
 						<Button type='sunbmit' variant='primary'>
 							Update
 						</Button>
