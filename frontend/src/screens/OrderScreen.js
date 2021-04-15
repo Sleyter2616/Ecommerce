@@ -65,7 +65,15 @@ const OrderScreen = ({match, history}) => {
 				setSdkReady(true)
 			}
 		}
-	}, [order, orderId, dispatch, successPay, successDeliver, history])
+	}, [
+		order,
+		orderId,
+		dispatch,
+		successPay,
+		successDeliver,
+		userInfo,
+		history,
+	])
 
 	const deliverHandler = () => {
 		dispatch(deliverOrder(order))
