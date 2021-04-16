@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 import {getUserDetails, updateUser} from '../actions/users/actions'
 import {listMyOrders} from '../actions/order/actions'
 import Meta from '../components/Meta'
+import {USER_UPDATE_RESET} from '../actions/users/constants'
 
 const ProfileScreen = ({location, history}) => {
 	const [email, setEmail] = useState('')
@@ -33,7 +34,8 @@ const ProfileScreen = ({location, history}) => {
 		if (!userInfo) {
 			history.push('/login')
 		} else {
-			if (!user.name) {
+			if (!user || !user.name || success) {
+				dispatch({type: USER_UPDATE_RESET})
 				dispatch(getUserDetails('profile'))
 				dispatch(listMyOrders())
 			} else {
