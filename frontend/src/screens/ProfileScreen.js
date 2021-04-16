@@ -152,7 +152,7 @@ const ProfileScreen = ({location, history}) => {
 										</td>
 										<td>
 											{order.isDelivered ? (
-												order.deliveredAt.subString(
+												order.deliveredAt.substring(
 													0,
 													10
 												)
