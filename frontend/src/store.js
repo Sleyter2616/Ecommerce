@@ -65,7 +65,7 @@ const userInfoFromStorgage = localStorage.getItem('userInfo')
 
 const shippingAddressFromStorgage = localStorage.getItem('shippingAddress')
 	? JSON.parse(localStorage.getItem('shippingAddress'))
-	: null
+	: {}
 
 const paymentMethodFromStorgage = localStorage.getItem('paymentMethod')
 	? JSON.parse(localStorage.getItem('paymentMethod'))
