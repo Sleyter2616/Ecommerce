@@ -80,7 +80,6 @@ const OrderScreen = ({match, history}) => {
 		dispatch(deliverOrder(order))
 	}
 	const successPaymentHandler = (paymentResult) => {
-		console.log(paymentResult)
 		dispatch(payOrder(orderId, paymentResult))
 	}
 	return loading ? (
